@@ -1,4 +1,4 @@
-package com.helpdesk.helpdesk.services.exceptions;
+package com.helpdesk.helpdesk.resources.exceptions;
 
 import java.io.Serializable;
 
