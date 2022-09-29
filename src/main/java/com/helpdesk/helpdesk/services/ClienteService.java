@@ -7,6 +7,7 @@ import java.util.Optional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.helpdesk.helpdesk.domain.Pessoa;
@@ -26,6 +27,9 @@ public class ClienteService {
     @Autowired
     private PessoaRepository pessoaRepository;
 
+    @Autowired 
+    private BCryptPasswordEncoder encoder;
+
     public Cliente findById(Integer id){
         Optional<Cliente> obj = repository.findById(id);
         return obj.orElseThrow(() -> new ObjectnotFoundException("Objeto não encontrado! Id: " + id));
@@ -37,6 +41,7 @@ public class ClienteService {
 
     public Cliente create(ClienteDTO objDTO) {
         objDTO.setId(null);
+        objDTO.setSenha(encoder.encode(objDTO.getSenha()));
         validatesCpfAndEmail(objDTO);
         Cliente newObj = new Cliente(objDTO);
         return repository.save(newObj);
