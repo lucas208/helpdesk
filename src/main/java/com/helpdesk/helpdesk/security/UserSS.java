@@ -12,7 +12,7 @@ import com.helpdesk.helpdesk.domain.enums.Perfil;
 
 public class UserSS implements UserDetails {
 
-    private final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
     private Integer id;
 

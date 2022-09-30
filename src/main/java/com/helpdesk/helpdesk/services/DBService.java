@@ -29,7 +29,7 @@ public class DBService {
 	private BCryptPasswordEncoder encoder;
     
     public void instanciaDB(){
-        Tecnico tec1 = new Tecnico(null,"Lucas","63653230268","lucas@mail.com","123");
+        Tecnico tec1 = new Tecnico(null,"Lucas","63653230268","lucas@mail.com", encoder.encode("123"));
 		tec1.addPerfil(Perfil.ADMIN);
 		Tecnico tec2 = new Tecnico(null, "Richard Stallman", "903.347.070-56", "stallman@mail.com", encoder.encode("123"));
 		Tecnico tec3 = new Tecnico(null, "Claude Elwood Shannon", "271.068.470-54", "shannon@mail.com", encoder.encode("123"));
