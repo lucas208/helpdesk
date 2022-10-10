@@ -28,7 +28,7 @@ import com.helpdesk.helpdesk.security.JWTUtil;
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private static final String[] PUBLIC_MATCHERS = {"/**"};
+    private static final String[] PUBLIC_MATCHERS = {"/h2-console/**"};
 
     @Autowired
     private Environment env;
